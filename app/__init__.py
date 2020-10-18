@@ -14,19 +14,18 @@ def create_app(config_name):
     # Initializing flask extensions
     bootstrap.init_app(app)
 
-    # Will add the views and forms
+#     # Will add the views and forms
+
+#     return app
+
+# def create_app(config_name):
+    #....
+    # Registering the blueprint
+    from .main import main as main_blueprint
+    app.register_blueprint(main_blueprint)
+
+    # setting config
+    from .requests import configure_request
+    configure_request(app)
 
     return app
-
-#Initializing application
-# app = Flask(__name__,instance_relative_config = True)
-
-# #Seting up configuration
-# app.config.from_object(DevConfig)
-# app.config.from_pyfile('config.py')
-
-# # Initializing Flask Extensions
-# bootstrap = Bootstrap(app)
-
-from app import views
-from app import error
